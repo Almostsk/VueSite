@@ -1,0 +1,224 @@
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.home {
+    width: 100%;
+    height: auto;
+    // font-size: 50px;
+    font-size: 3rem;
+    text-align: center;
+    font-family: $RegularFont;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include tablets() {
+        padding: 0 15px;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .bm-burger-button {
+        right: 30px;
+        left: auto ;
+        top: 0 ;
+    }
+    
+    .bm-burger-bars {
+        background-color: $white ;
+      }
+    .bm-menu {
+        background-color: rgba(#000, .8) ;
+    }
+}
+.mob-menu {
+    display: none;
+    @include tablets() {
+        display: block;
+    }
+}
+
+.home-head {
+    width: 100%;
+    height: 100vh;
+    background-image: url('~@/assets/img/ukraine-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include border-box();
+    padding: 50px 0;
+    -webkit-transition: background-image 0.5s ease-in-out;
+    transition: background-image 0.5s ease-in-out;
+}
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.main-logo {
+    height: 50px;
+    width: auto;
+    @include phones(){
+        height: 35px;
+    }
+}
+.header-menu {
+    margin: 0;
+    list-style-type: none;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    @include tablets() {
+        display: none;
+    }
+}
+.header-item {
+    font-family: $BoldFont;
+    // font-size: 24px;
+    font-size: 1.5rem;
+    letter-spacing: .1em;
+    line-height: 1.5;
+    display: block;
+    padding: 0 15px;
+    text-align: left;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        &::after {
+            transform: translateX(0);
+        }
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 2px;
+        background: $red;
+        position: absolute;
+        bottom: 0;
+        right: -10px;
+        transform: translateX(100%);
+        transition: all .2s ease-in;
+    }
+
+    @include phones() {
+        font-size: 3rem;
+    }
+    
+}
+
+.home-footer {
+    width: 70%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .2s ease;
+    &.hidden {
+        opacity: 0;
+    }
+    @include tablets() {
+        display: block;
+        width: 100%;
+    }
+}
+.home-country {
+    font-family: $BoldFont;
+    // font-size: 24px;
+    font-size: 1.5rem;
+    letter-spacing: .2em;
+    color: $inactiveGrey;
+    cursor: pointer;
+    user-select: none;
+    &.active {
+        color: $red;
+    }
+    @include tablets() {
+        display: inline-block;
+        width: 32%;
+    }
+}
+
+.home-main {
+    margin-top: 10vh;
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    @include phones() {
+        margin-top: 0; 
+    }
+}
+.home-title {
+    font-family: $BoldFont;
+    // font-size: 48px;
+    font-size: 3rem;
+    letter-spacing: .8em;
+    color: $white;
+    padding: 0;
+    margin: 0;
+    margin-right: -0.8em;
+}
+.home-text {
+    font-family: $RegularFont;
+    // font-size: 24px;
+    font-size: 1.5rem;
+    color: $white;
+}
+.who-are-we, .our-story {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+.who-are-we {
+    text-align: right;
+    padding: 0 10% 0 20%;
+    @include phones() {
+        padding: 0 10% 0 5%; 
+    }
+    .who-arrow {
+        position: absolute;
+        display: inline;
+        // content: '\276D';
+        color: $red;
+        font-size: 6rem;
+        right: 0;
+        top: calc(50% - 50px);
+        cursor: pointer;
+    }
+}
+.our-story {
+    text-align: left;
+    padding: 0 10% 0 20%;
+    .our-arrow {
+        position: absolute;
+        display: inline;
+        color: $red;
+        // font-size: 100px;
+        font-size: 6rem;
+        left: 0;
+        top: calc(50% - 50px);
+        cursor: pointer;
+    }
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+    transition: all .3s ease;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateX(100px);
+    opacity: 0;
+  }
